@@ -7,7 +7,7 @@ import org.junit.jupiter.api.assertThrows
 
 class MetalArchiveTests{
 
-    private val metalArchiveScraper: Scraper = MetalArchiveScraper().apply { client = ProxyClient().client }
+    private val metalArchiveScraper: Scraper = MetalArchiveScraper()
 
     @Test
     fun mockBandScraper(){

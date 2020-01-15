@@ -15,7 +15,7 @@ fun main(args: Array<String>) {
 
     runBlocking {
         val time = measureTimeMillis {
-            list.map {
+            list.asSequence().map {
                 async(Dispatchers.IO) {
                     MetalArchiveScraper().searchBand(it)
                 }

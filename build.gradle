@@ -19,6 +19,13 @@ dependencies {
     testCompile("org.junit.jupiter:junit-jupiter:5.5.2")
 }
 
+jar {
+    manifest {
+        attributes 'Main-Class': 'io.github.mpao.ApplicationKt'
+    }
+    from { configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
 tasks.test {
     useJUnitPlatform()
 }

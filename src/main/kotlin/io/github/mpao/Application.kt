@@ -4,18 +4,14 @@ import io.github.mpao.metal.MetalArchiveScraper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.runBlocking
+import java.io.File
 import kotlin.system.measureTimeMillis
 
-fun main() {
+fun main(args: Array<String>) {
 
-    val list = listOf(
-        "Nazgul::7829",
-        "draugr",
-        "orietta berti",
-        "emyn muil",
-        "atavicus",
-        "selvans"
-    )
+    val list = File(args[0]).useLines {
+        it.toList()
+    }
 
     runBlocking {
         val time = measureTimeMillis {
